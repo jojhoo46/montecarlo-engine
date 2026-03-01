@@ -41,18 +41,15 @@ $$V(S_T) = \max(\phi(S_T - K), 0)$$
 ### Compilation
 1. Clone the repository:
    ```bash
-   git clone [https://github.com/Tzintzun444/montecarlo-engine.git](https://github.com/Tzintzun444/montecarlo-engine.git)
+   git clone https://github.com/Tzintzun444/montecarlo-engine.git
    cd montecarlo-engine
-
 2. Create a build directory and configure with CMake:
    ```bash
    mkdir build && cd build 
    cmake ..
-
 3. Compile the module:
    ```bash
    cmake --build . --config Release
-
 4. The resulting `.so` (Linux/Mac) or `.pyd` (Windows) binary will be generated. Place it in your Python project directory to import it.
 
 ## Usage Example (Python)
@@ -82,7 +79,6 @@ print(f"Fair Value: {res.fairValue:.6f}")
 print(f"Confidence Interval: [{res.CI_lower:.6f}, {res.CI_upper:.6f}]")
 print(f"Delta: {res.delta:.6f} | Gamma: {res.gamma:.6f} | Vega: {res.vega:.6f}")
 print(f"Execution Time: {(end - start) * 1000:.2f} ms")
-
 ```
 
 ## Project Structure
